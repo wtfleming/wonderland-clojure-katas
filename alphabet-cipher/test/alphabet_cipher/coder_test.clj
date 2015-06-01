@@ -8,6 +8,13 @@
     (is (= 1 (letter-position \b)))
     (is (= 2 (letter-position \c)))))
 
+(deftest test-position-letter
+  (testing "retrieve the correct position"
+    (is (= \a (position-letter 0)))
+    (is (= \b (position-letter 1)))
+    (is (= \c (position-letter 2)))))
+
+
 (deftest test-alphabet-list
   (testing "creates a list with all letters of the alphabet"
     (is (= '(\a \b \c \d \e \f \g \h \i \j \k \l \m \n \o \p \q \r \s \t \u \v \w \x \y \z)
@@ -29,6 +36,11 @@
            (encode "vigilance" "meetmeontuesdayeveningatseven")))
     (is (= "egsgqwtahuiljgs"
            (encode "scones" "meetmebythetree")))))
+
+(deftest test-decode-letter
+  (testing "decodes a letter"
+    (is (= \m (decode-letter \h \v)))))
+
 
 (deftest test-decode
   (testing "can decode an cyrpted message given a secret keyword"
